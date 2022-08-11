@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
 import GithubIcon from '../../atoms/icons/GithubIcon';
-import { NavStyled } from './Navbar.styles';
+import Search from '../../molecules/Search/Search';
+import { NavStyled, SearchWrapper } from './Navbar.styles';
 
 const Navbar = () => {
   return (
@@ -11,8 +12,9 @@ const Navbar = () => {
           <GithubIcon />
         </a>
       </Link>
-      {/* TODO -> place a proper input here */}
-      <input type="text" />
+      <SearchWrapper>
+        <Search />
+      </SearchWrapper>
     </NavStyled>
   );
 };

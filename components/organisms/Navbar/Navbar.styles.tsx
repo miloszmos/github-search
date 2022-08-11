@@ -9,3 +9,8 @@ export const NavStyled = styled.nav`
   background-color: var(--black);
   color: var(--lightGray);
 `;
+
+export const SearchWrapper = styled.div`
+  width: 100%;
+  max-width: 242px;
+`;

@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React from 'react';
-import Button from '../components/atoms/Button';
+import Button from '../components/atoms/Button/Button';
 import FourOFourIcon from '../components/atoms/icons/FourOFourIcon';
 import {
   ContentStyles,
