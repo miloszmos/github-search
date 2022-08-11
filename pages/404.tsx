@@ -5,7 +5,7 @@ import FourOFourIcon from '../components/atoms/icons/FourOFourIcon';
 import {
   ContentStyles,
   IconWrapper,
-} from '../components/templates/FourOFour/FourOFour.styles';
+} from '../components/pages/FourOFour/FourOFour.styles';
 
 const FourOFourPage = () => {
   const router = useRouter();

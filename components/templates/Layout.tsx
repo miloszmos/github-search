@@ -1,5 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
+import Navbar from '../organisms/Navbar/Navbar';
 
 const InnerStyles = styled.div`
   max-width: var(--maxWidth);
@@ -8,7 +9,12 @@ const InnerStyles = styled.div`
 `;
 
 const Layout = ({ children }: PropsWithChildren) => {
-  return <InnerStyles>{children}</InnerStyles>;
+  return (
+    <>
+      <Navbar />
+      <InnerStyles>{children}</InnerStyles>
+    </>
+  );
 };
 
 export default Layout;

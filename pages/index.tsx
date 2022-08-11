@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { SkeletonItemsLoadingList } from '../components/molecules/SkeletonItemLoading/SkeletonItemLoading';
-import { HomeSectionWapper } from '../components/templates/Home/Home.styles';
+import { HomeSectionWapper } from '../components/pages/Home/Home.styles';
 import { useSearchLazyQuery } from '../graphql/generated/graphql';
 import { getDataReady } from '../lib/getDataReady';
 
