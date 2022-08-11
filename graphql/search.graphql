@@ -3,14 +3,45 @@ query Search($query: String!) {
     nodes {
       ... on User {
         name
+        avatarUrl
+        bio
+        id
+        location
+        url
+        login
       }
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+      hasPreviousPage
     }
   }
   repositories: search(query: $query, first: 10, type: REPOSITORY) {
     nodes {
       ... on Repository {
-        name
+        id
+        nameWithOwner
+        createdAt
+        description
+        stargazerCount
+        url
+        updatedAt
+        licenseInfo {
+          name
+        }
+        languages(first: 1) {
+          nodes {
+            name
+            color
+          }
+        }
       }
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+      hasPreviousPage
     }
   }
 }
