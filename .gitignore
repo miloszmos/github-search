@@ -15,6 +15,9 @@
 # production
 /build
 
+# codegen
+codegen.yml
+
 # misc
 .DS_Store
 *.pem

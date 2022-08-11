@@ -1,0 +1,16 @@
+query Search($query: String!) {
+  users: search(query: $query, first: 10, type: USER) {
+    nodes {
+      ... on User {
+        name
+      }
+    }
+  }
+  repositories: search(query: $query, first: 10, type: REPOSITORY) {
+    nodes {
+      ... on Repository {
+        name
+      }
+    }
+  }
+}

@@ -7,15 +7,27 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.9",
+    "@apollo/link-error": "^2.0.0-beta.3",
+    "graphql": "^16.5.0",
+    "graphql-codegen": "^0.4.0",
+    "init": "^0.1.2",
     "next": "12.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@graphql-codegen/cli": "2.11.3",
+    "@graphql-codegen/introspection": "2.2.0",
+    "@graphql-codegen/typescript": "2.7.2",
+    "@graphql-codegen/typescript-operations": "2.5.2",
+    "@graphql-codegen/typescript-react-apollo": "3.3.2",
     "@types/node": "18.7.1",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
