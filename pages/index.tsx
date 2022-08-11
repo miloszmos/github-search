@@ -1,29 +1,41 @@
-import type { NextPage } from 'next';
-import styled from 'styled-components';
-import { useSearchQuery } from '../graphql/generated/graphql';
+import { useEffect } from 'react';
+import { SkeletonItemsLoadingList } from '../components/molecules/SkeletonItemLoading/SkeletonItemLoading';
+import { HomeSectionWapper } from '../components/templates/Home/Home.styles';
+import { useSearchLazyQuery } from '../graphql/generated/graphql';
+import { getDataReady } from '../lib/getDataReady';
 
-const HomePageStyles = styled.div`
-  background-color: beige;
-`;
+const HomePage = () => {
+  const [searchItem, { data, loading }] = useSearchLazyQuery();
+  const renderInitilas = () =>
+    searchItem({
+      variables: {
+        query: 'init',
+      },
+    });
 
-const Home: NextPage = () => {
-  const { data, loading } = useSearchQuery({
-    variables: {
-      query: 'test',
-    },
-  });
+  useEffect(() => {
+    renderInitilas();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (loading) {
-    return <p>Loading...👀</p>;
+    return (
+      <HomeSectionWapper>
+        <SkeletonItemsLoadingList />
+      </HomeSectionWapper>
+    );
   }
 
   return (
-    <HomePageStyles>
-      {data?.users.nodes?.map(
-        (el) => el?.__typename === 'User' && <div>{el.name}</div>
-      )}
-    </HomePageStyles>
+    <HomeSectionWapper>
+      {data &&
+        getDataReady(data)?.map((el) => {
+          if (el?.__typename === 'Repository') {
+            return <p>Test</p>;
+          }
+        })}
+    </HomeSectionWapper>
   );
 };
 
-export default Home;
+export default HomePage;
