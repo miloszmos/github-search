@@ -25686,12 +25686,12 @@ export type SearchQueryVariables = Exact<{
 }>;
 
 
-export type SearchQuery = { __typename?: 'Query', users: { __typename?: 'SearchResultItemConnection', nodes?: Array<{ __typename?: 'App' } | { __typename?: 'Discussion' } | { __typename?: 'Issue' } | { __typename?: 'MarketplaceListing' } | { __typename?: 'Organization' } | { __typename?: 'PullRequest' } | { __typename?: 'Repository' } | { __typename?: 'User', name?: string | null, avatarUrl: any, bio?: string | null, id: string, location?: string | null, url: any, login: string } | null> | null, pageInfo: { __typename?: 'PageInfo', endCursor?: string | null, hasNextPage: boolean, hasPreviousPage: boolean } }, repositories: { __typename?: 'SearchResultItemConnection', nodes?: Array<{ __typename?: 'App' } | { __typename?: 'Discussion' } | { __typename?: 'Issue' } | { __typename?: 'MarketplaceListing' } | { __typename?: 'Organization' } | { __typename?: 'PullRequest' } | { __typename?: 'Repository', id: string, nameWithOwner: string, createdAt: any, description?: string | null, stargazerCount: number, url: any, updatedAt: any, licenseInfo?: { __typename?: 'License', name: string } | null, languages?: { __typename?: 'LanguageConnection', nodes?: Array<{ __typename?: 'Language', name: string, color?: string | null } | null> | null } | null } | { __typename?: 'User' } | null> | null, pageInfo: { __typename?: 'PageInfo', endCursor?: string | null, hasNextPage: boolean, hasPreviousPage: boolean } } };
+export type SearchQuery = { __typename?: 'Query', users: { __typename?: 'SearchResultItemConnection', nodes?: Array<{ __typename?: 'App' } | { __typename?: 'Discussion' } | { __typename?: 'Issue' } | { __typename?: 'MarketplaceListing' } | { __typename?: 'Organization' } | { __typename?: 'PullRequest' } | { __typename?: 'Repository' } | { __typename?: 'User', name?: string | null, avatarUrl: any, bio?: string | null, id: string, location?: string | null, login: string } | null> | null, pageInfo: { __typename?: 'PageInfo', endCursor?: string | null, hasNextPage: boolean, hasPreviousPage: boolean } }, repositories: { __typename?: 'SearchResultItemConnection', nodes?: Array<{ __typename?: 'App' } | { __typename?: 'Discussion' } | { __typename?: 'Issue' } | { __typename?: 'MarketplaceListing' } | { __typename?: 'Organization' } | { __typename?: 'PullRequest' } | { __typename?: 'Repository', id: string, nameWithOwner: string, createdAt: any, description?: string | null, stargazerCount: number, url: any, updatedAt: any, licenseInfo?: { __typename?: 'License', name: string } | null, languages?: { __typename?: 'LanguageConnection', nodes?: Array<{ __typename?: 'Language', name: string, color?: string | null } | null> | null } | null } | { __typename?: 'User' } | null> | null, pageInfo: { __typename?: 'PageInfo', endCursor?: string | null, hasNextPage: boolean, hasPreviousPage: boolean } } };
 
 
 export const SearchDocument = gql`
     query Search($query: String!) {
-  users: search(query: $query, first: 10, type: USER) {
+  users: search(query: $query, first: 50, type: USER) {
     nodes {
       ... on User {
         name
@@ -25699,7 +25699,6 @@ export const SearchDocument = gql`
         bio
         id
         location
-        url
         login
       }
     }
@@ -25709,7 +25708,7 @@ export const SearchDocument = gql`
       hasPreviousPage
     }
   }
-  repositories: search(query: $query, first: 10, type: REPOSITORY) {
+  repositories: search(query: $query, first: 50, type: REPOSITORY) {
     nodes {
       ... on Repository {
         id

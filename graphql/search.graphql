@@ -1,5 +1,5 @@
 query Search($query: String!) {
-  users: search(query: $query, first: 10, type: USER) {
+  users: search(query: $query, first: 50, type: USER) {
     nodes {
       ... on User {
         name
@@ -7,7 +7,6 @@ query Search($query: String!) {
         bio
         id
         location
-        url
         login
       }
     }
@@ -17,7 +16,7 @@ query Search($query: String!) {
       hasPreviousPage
     }
   }
-  repositories: search(query: $query, first: 10, type: REPOSITORY) {
+  repositories: search(query: $query, first: 50, type: REPOSITORY) {
     nodes {
       ... on Repository {
         id

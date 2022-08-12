@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import RepositoryItem from '../components/molecules/ListItem/RepositoryItem';
-import { SkeletonItemsLoadingList } from '../components/molecules/SkeletonItemLoading/SkeletonItemLoading';
+import { SkeletonItemsLoadingList } from '../components/molecules/ListItem/SkeletonItemLoading/SkeletonItemLoading';
+import UserItem from '../components/molecules/ListItem/UserItem';
 import NoResults from '../components/organisms/NoResults/NoResults';
 import { HomeSectionWapper } from '../components/pages/Home/Home.styles';
 import { useSearchLazyQuery } from '../graphql/generated/graphql';
@@ -11,7 +12,7 @@ const HomePage = () => {
   const renderInitilas = () =>
     searchItem({
       variables: {
-        query: 'init',
+        query: 'test',
       },
     });
 
@@ -38,6 +39,9 @@ const HomePage = () => {
         getDataReady(data)?.map((el) => {
           if (el?.__typename === 'Repository') {
             return <RepositoryItem key={el?.id} repository={el} />;
+          }
+          if (el?.__typename === 'User') {
+            return <UserItem key={el?.id} user={el} />;
           }
         })}
     </HomeSectionWapper>
