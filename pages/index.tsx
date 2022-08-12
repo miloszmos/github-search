@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import RepositoryItem from '../components/molecules/ListItem/RepositoryItem';
 import { SkeletonItemsLoadingList } from '../components/molecules/SkeletonItemLoading/SkeletonItemLoading';
 import NoResults from '../components/organisms/NoResults/NoResults';
 import { HomeSectionWapper } from '../components/pages/Home/Home.styles';
@@ -36,7 +37,7 @@ const HomePage = () => {
       {data &&
         getDataReady(data)?.map((el) => {
           if (el?.__typename === 'Repository') {
-            return <p>Test</p>;
+            return <RepositoryItem key={el?.id} repository={el} />;
           }
         })}
     </HomeSectionWapper>

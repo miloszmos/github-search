@@ -11,7 +11,7 @@ export const NoResultsStyles = styled.div`
   h1 {
     font-size: 2.4rem;
     font-weight: var(--fw-semiBold);
-    color: var(--darkestGray);
+    color: var(--black);
   }
   p {
     font-size: 1.6rem;
