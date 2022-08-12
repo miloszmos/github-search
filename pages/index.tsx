@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { SkeletonItemsLoadingList } from '../components/molecules/SkeletonItemLoading/SkeletonItemLoading';
+import NoResults from '../components/organisms/NoResults/NoResults';
 import { HomeSectionWapper } from '../components/pages/Home/Home.styles';
 import { useSearchLazyQuery } from '../graphql/generated/graphql';
 import { getDataReady } from '../lib/getDataReady';
@@ -24,6 +25,10 @@ const HomePage = () => {
         <SkeletonItemsLoadingList />
       </HomeSectionWapper>
     );
+  }
+
+  if (data && !getDataReady(data).length) {
+    return <NoResults />;
   }
 
   return (
