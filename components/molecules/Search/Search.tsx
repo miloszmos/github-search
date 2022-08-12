@@ -1,18 +1,21 @@
 import React, { ChangeEvent } from 'react';
+import { useSearch } from '../../../context/SearchContext';
 import Input from '../../atoms/Input/Input';
 
 const Search = () => {
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {};
+  const { searchTerm, setSearchTerm } = useSearch();
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
 
   return (
-    <>
-      <Input
-        type="text"
-        value={''}
-        onChange={handleInputChange}
-        placeholder="Search"
-      />
-    </>
+    <Input
+      type="text"
+      value={searchTerm}
+      onChange={handleInputChange}
+      placeholder="Search"
+    />
   );
 };
 

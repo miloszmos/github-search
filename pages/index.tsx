@@ -4,11 +4,16 @@ import { SkeletonItemsLoadingList } from '../components/molecules/ListItem/Skele
 import UserItem from '../components/molecules/ListItem/UserItem';
 import NoResults from '../components/organisms/NoResults/NoResults';
 import { HomeSectionWapper } from '../components/pages/Home/Home.styles';
+import { useSearch } from '../context/SearchContext';
 import { useSearchLazyQuery } from '../graphql/generated/graphql';
+import useDebounce from '../hooks/useDebounce';
 import { getDataReady } from '../lib/getDataReady';
 
 const HomePage = () => {
+  const { searchTerm } = useSearch();
+  const debouncedSearchTerm = useDebounce(searchTerm, 300);
   const [searchItem, { data, loading }] = useSearchLazyQuery();
+
   const renderInitilas = () =>
     searchItem({
       variables: {
@@ -20,6 +25,22 @@ const HomePage = () => {
     renderInitilas();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(
+    () => {
+      if (debouncedSearchTerm) {
+        searchItem({
+          variables: {
+            query: debouncedSearchTerm,
+          },
+        });
+      } else {
+        renderInitilas();
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [debouncedSearchTerm]
+  );
 
   if (loading) {
     return (

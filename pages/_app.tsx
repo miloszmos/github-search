@@ -5,6 +5,7 @@ import GlobalStyle from '../styles/globalStyles';
 import { client } from '../lib/apolloClient';
 import Layout from '../components/templates/Layout';
 import Head from 'next/head';
+import { SearchProvider } from '../context/SearchContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -28,9 +29,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           <meta property="og:type" content="https://website.com/" />
         </Head>
         <GlobalStyle />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <SearchProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </SearchProvider>
       </ApolloProvider>
     </>
   );
