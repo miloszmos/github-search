@@ -1,6 +1,9 @@
 import React, { ReactNode } from 'react';
-import { LabelStyles } from '../../atoms/Label/Label.styles';
-import { CountStyles, DetailsLabelStyles } from './DetailsLabel.styles';
+import {
+  CountStyles,
+  DetailsLabelStyles,
+  LabelWrapper,
+} from './DetailsLabel.styles';
 
 interface DetailsProps {
   label?: string;
@@ -13,7 +16,7 @@ const DetailsLabel = ({ count, icon, label }: DetailsProps) => {
     <DetailsLabelStyles>
       {icon && <span className="icon">{icon}</span>}
       <CountStyles>{count}</CountStyles>
-      {label && <LabelStyles>{label}</LabelStyles>}
+      {label && <LabelWrapper>{label}</LabelWrapper>}
     </DetailsLabelStyles>
   );
 };

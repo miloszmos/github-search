@@ -25681,6 +25681,13 @@ export type WorkflowRunPendingDeploymentRequestsArgs = {
   last?: InputMaybe<Scalars['Int']>;
 };
 
+export type GetUserProfileQueryVariables = Exact<{
+  login: Scalars['String'];
+}>;
+
+
+export type GetUserProfileQuery = { __typename?: 'Query', user?: { __typename?: 'User', avatarUrl: any, id: string, name?: string | null, login: string, starredRepositories: { __typename?: 'StarredRepositoryConnection', totalCount: number }, following: { __typename?: 'FollowingConnection', totalCount: number }, followers: { __typename?: 'FollowerConnection', totalCount: number } } | null };
+
 export type SearchQueryVariables = Exact<{
   query: Scalars['String'];
 }>;
@@ -25689,6 +25696,53 @@ export type SearchQueryVariables = Exact<{
 export type SearchQuery = { __typename?: 'Query', users: { __typename?: 'SearchResultItemConnection', nodes?: Array<{ __typename?: 'App' } | { __typename?: 'Discussion' } | { __typename?: 'Issue' } | { __typename?: 'MarketplaceListing' } | { __typename?: 'Organization' } | { __typename?: 'PullRequest' } | { __typename?: 'Repository' } | { __typename?: 'User', name?: string | null, avatarUrl: any, bio?: string | null, id: string, location?: string | null, login: string } | null> | null, pageInfo: { __typename?: 'PageInfo', endCursor?: string | null, hasNextPage: boolean, hasPreviousPage: boolean } }, repositories: { __typename?: 'SearchResultItemConnection', nodes?: Array<{ __typename?: 'App' } | { __typename?: 'Discussion' } | { __typename?: 'Issue' } | { __typename?: 'MarketplaceListing' } | { __typename?: 'Organization' } | { __typename?: 'PullRequest' } | { __typename?: 'Repository', id: string, nameWithOwner: string, createdAt: any, description?: string | null, stargazerCount: number, url: any, updatedAt: any, licenseInfo?: { __typename?: 'License', name: string } | null, languages?: { __typename?: 'LanguageConnection', nodes?: Array<{ __typename?: 'Language', name: string, color?: string | null } | null> | null } | null } | { __typename?: 'User' } | null> | null, pageInfo: { __typename?: 'PageInfo', endCursor?: string | null, hasNextPage: boolean, hasPreviousPage: boolean } } };
 
 
+export const GetUserProfileDocument = gql`
+    query getUserProfile($login: String!) {
+  user(login: $login) {
+    avatarUrl
+    id
+    name
+    starredRepositories {
+      totalCount
+    }
+    following {
+      totalCount
+    }
+    followers {
+      totalCount
+    }
+    login
+  }
+}
+    `;
+
+/**
+ * __useGetUserProfileQuery__
+ *
+ * To run a query within a React component, call `useGetUserProfileQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUserProfileQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetUserProfileQuery({
+ *   variables: {
+ *      login: // value for 'login'
+ *   },
+ * });
+ */
+export function useGetUserProfileQuery(baseOptions: Apollo.QueryHookOptions<GetUserProfileQuery, GetUserProfileQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetUserProfileQuery, GetUserProfileQueryVariables>(GetUserProfileDocument, options);
+      }
+export function useGetUserProfileLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserProfileQuery, GetUserProfileQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetUserProfileQuery, GetUserProfileQueryVariables>(GetUserProfileDocument, options);
+        }
+export type GetUserProfileQueryHookResult = ReturnType<typeof useGetUserProfileQuery>;
+export type GetUserProfileLazyQueryHookResult = ReturnType<typeof useGetUserProfileLazyQuery>;
+export type GetUserProfileQueryResult = Apollo.QueryResult<GetUserProfileQuery, GetUserProfileQueryVariables>;
 export const SearchDocument = gql`
     query Search($query: String!) {
   users: search(query: $query, first: 50, type: USER) {
