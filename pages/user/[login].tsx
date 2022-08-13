@@ -1,6 +1,7 @@
 import { GetServerSideProps } from 'next';
 import Avatar from '../../components/atoms/Avatar/Avatar';
 import StarIcon from '../../components/atoms/Icons/StarIcon';
+import UsersIcon from '../../components/atoms/Icons/UsersIcon';
 import DetailsLabel from '../../components/molecules/DetailsLabel/DetailsLabel';
 import {
   UserDetails,
@@ -27,13 +28,10 @@ const UserProfilePage = ({ user }: UserProfilePageProps) => {
       <UserDetails>
         <DetailsLabel
           label="Followers"
-          icon={<StarIcon className="icon" />}
-          count={user.starredRepositories.totalCount}
+          icon={<UsersIcon className="icon" />}
+          count={user.followers.totalCount}
         />
-        <DetailsLabel
-          label="Following"
-          count={user.starredRepositories.totalCount}
-        />
+        <DetailsLabel label="Following" count={user.following.totalCount} />
 
         <DetailsLabel
           icon={<StarIcon className="icon" />}
