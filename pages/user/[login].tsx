@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next';
 import Avatar from '../../components/atoms/Avatar/Avatar';
-import StarIcon from '../../components/atoms/icons/StarIcon';
+import StarIcon from '../../components/atoms/Icons/StarIcon';
 import DetailsLabel from '../../components/molecules/DetailsLabel/DetailsLabel';
 import {
   UserDetails,

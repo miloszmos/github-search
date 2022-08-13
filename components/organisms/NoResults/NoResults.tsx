@@ -1,5 +1,5 @@
 import React from 'react';
-import NoResultsIcon from '../../atoms/icons/NoResultsIcon';
+import NoResultsIcon from '../../atoms/Icons/NoResultsIcon';
 import { NoResultsStyles } from './NoResults.styles';
 
 const NoResults = () => {

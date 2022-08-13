@@ -1,4 +1,4 @@
-import { createGlobalStyle, css, CSSProperties } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 
 const breakPoints = {
   xs: '320px',
@@ -10,6 +10,11 @@ export const device = {
   xs: `(min-width: ${breakPoints.xs})`,
   sm: `(min-width: ${breakPoints.sm})`,
   lg: `(min-width: ${breakPoints.lg})`,
+};
+
+export const iconColors = {
+  active: '#166cd7',
+  disabled: '#8D959F',
 };
 
 const GlobalStyle = createGlobalStyle`${css`

@@ -26,7 +26,12 @@ export const BackButtonStyles = styled.button<{
   border: none;
   background: white;
   color: ${(props) => `var(--${props.color})`};
-  &:hover {
+
+  &:hover:not(:disabled) {
     text-decoration: underline;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    color: #8d959f;
   }
 `;

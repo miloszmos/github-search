@@ -1,5 +1,20 @@
-query Search($query: String!) {
-  users: search(query: $query, first: 50, type: USER) {
+query Search(
+  $query: String!
+  $first: Int
+  $last: Int
+  $afterUser: String
+  $afterRepository: String
+  $beforeUser: String
+  $beforeRepository: String
+) {
+  users: search(
+    query: $query
+    type: USER
+    first: $first
+    last: $last
+    after: $afterUser
+    before: $beforeUser
+  ) {
     userCount
     nodes {
       ... on User {
@@ -15,9 +30,17 @@ query Search($query: String!) {
       endCursor
       hasNextPage
       hasPreviousPage
+      startCursor
     }
   }
-  repositories: search(query: $query, first: 50, type: REPOSITORY) {
+  repositories: search(
+    query: $query
+    type: REPOSITORY
+    first: $first
+    last: $last
+    after: $afterRepository
+    before: $beforeRepository
+  ) {
     repositoryCount
     nodes {
       ... on Repository {
@@ -43,6 +66,7 @@ query Search($query: String!) {
       endCursor
       hasNextPage
       hasPreviousPage
+      startCursor
     }
   }
 }

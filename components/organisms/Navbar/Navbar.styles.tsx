@@ -8,9 +8,13 @@ export const NavStyled = styled.nav`
   padding: 2rem;
   background-color: var(--black);
   color: var(--lightGray);
+  a {
+    display: flex;
+  }
 `;
 
 export const SearchWrapper = styled.div`
   width: 100%;
   max-width: 242px;
+  margin-left: 20px;
 `;

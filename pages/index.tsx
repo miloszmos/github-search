@@ -3,6 +3,9 @@ import RepositoryItem from '../components/molecules/ListItem/RepositoryItem';
 import { SkeletonItemsLoadingList } from '../components/molecules/ListItem/SkeletonItemLoading/SkeletonItemLoading';
 import UserItem from '../components/molecules/ListItem/UserItem';
 import NoResults from '../components/organisms/NoResults/NoResults';
+import GithubPagination, {
+  ITEMS_PER_QUERY,
+} from '../components/pages/Home/GithubPagination';
 import {
   HomeResultsTitle,
   HomeSectionWapper,
@@ -16,12 +19,15 @@ import { getTotalResults } from '../lib/getTotalResults';
 const HomePage = () => {
   const { searchTerm } = useSearch();
   const debouncedSearchTerm = useDebounce(searchTerm, 300);
-  const [searchItem, { data, loading }] = useSearchLazyQuery();
+  const [searchItems, { data, loading }] = useSearchLazyQuery();
 
   const renderInitilas = () =>
-    searchItem({
+    searchItems({
       variables: {
-        query: 'test',
+        first: ITEMS_PER_QUERY,
+        afterUser: null,
+        afterRepository: null,
+        query: 'passion',
       },
     });
 
@@ -33,9 +39,10 @@ const HomePage = () => {
   useEffect(
     () => {
       if (debouncedSearchTerm) {
-        searchItem({
+        searchItems({
           variables: {
             query: debouncedSearchTerm,
+            first: ITEMS_PER_QUERY,
           },
         });
       } else {
@@ -54,7 +61,7 @@ const HomePage = () => {
     );
   }
 
-  if (data && !getDataReady(data).length) {
+  if (!data || getTotalResults(data) === 0) {
     return <NoResults />;
   }
 
@@ -73,6 +80,7 @@ const HomePage = () => {
               return <UserItem key={el?.id} user={el} />;
             }
           })}
+          <GithubPagination searchItems={searchItems} data={data} />
         </section>
       </>
     )

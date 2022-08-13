@@ -1,8 +1,8 @@
 import { formatDistanceStrict } from 'date-fns';
 import React from 'react';
 import { Repository } from '../../../graphql/generated/graphql';
-import RepositoryIcon from '../../atoms/icons/RepositoryIcon';
-import StarIcon from '../../atoms/icons/StarIcon';
+import RepositoryIcon from '../../atoms/Icons/RepositoryIcon';
+import StarIcon from '../../atoms/Icons/StarIcon';
 import Dot from '../../atoms/Label/DotLabel';
 import IconCountLabel from '../../atoms/Label/IconCountLabel';
 import { LabelStyles } from '../../atoms/Label/Label.styles';
