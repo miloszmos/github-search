@@ -1,6 +1,16 @@
 import { createGlobalStyle, css, CSSProperties } from 'styled-components';
 
-const theme = {};
+const breakPoints = {
+  xs: '320px',
+  sm: '768px',
+  lg: '1200px',
+};
+
+export const device = {
+  xs: `(min-width: ${breakPoints.xs})`,
+  sm: `(min-width: ${breakPoints.sm})`,
+  lg: `(min-width: ${breakPoints.lg})`,
+};
 
 const GlobalStyle = createGlobalStyle`${css`
   html {

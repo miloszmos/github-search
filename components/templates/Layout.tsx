@@ -5,7 +5,7 @@ import Navbar from '../organisms/Navbar/Navbar';
 const InnerStyles = styled.div`
   max-width: var(--maxWidth);
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1.6rem;
 `;
 
 const Layout = ({ children }: PropsWithChildren) => {

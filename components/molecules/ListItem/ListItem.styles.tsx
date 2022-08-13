@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { LabelStyles } from '../../atoms/Label/Label.styles';
 
 export const ItemTextStyles = styled.p`
+  word-break: break-all;
   color: var(--primary);
   font-weight: var(--fw-medium);
   font-size: 1.6rem;
@@ -18,6 +19,7 @@ export const ItemTextStyles = styled.p`
 `;
 
 export const ItemDescriptionStyles = styled.p`
+  word-break: break-all;
   font-size: 1.4rem;
   line-height: 1.8rem;
   font-weight: var(--fw-medium);
@@ -40,12 +42,13 @@ export const ItemWrapperStyles = styled.div`
 `;
 
 export const LabelWrapper = styled(LabelStyles)`
-  margin-left: 14px;
+  margin-right: 14px;
 `;
 
 export const InfoStyles = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   margin-top: 15px;
   .icon {
     margin-top: -2px;

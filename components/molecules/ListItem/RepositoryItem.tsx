@@ -40,21 +40,21 @@ const RepositoryItem = ({ repository }: RepositoryItemProps) => {
         </a>
         <ItemTextStyles className="gray desc">{description}</ItemTextStyles>
         <InfoStyles>
-          <IconCountLabel icon={<StarIcon />} count={stargazerCount} />
+          <LabelWrapper>
+            <IconCountLabel icon={<StarIcon />} count={stargazerCount} />
+          </LabelWrapper>
           {lang && lang[0] && (
             <LabelWrapper>
               <Dot label={lang[0].name} bgColor={lang[0].color} />
             </LabelWrapper>
           )}
           {licenseInfo && <LabelWrapper>{licenseInfo.name}</LabelWrapper>}
-          <LabelWrapper>
-            <LabelStyles>
-              Updated{' '}
-              {formatDistanceStrict(new Date(updatedAt), new Date(), {
-                addSuffix: true,
-              })}
-            </LabelStyles>
-          </LabelWrapper>
+          <LabelStyles>
+            Updated{' '}
+            {formatDistanceStrict(new Date(updatedAt), new Date(), {
+              addSuffix: true,
+            })}
+          </LabelStyles>
         </InfoStyles>
       </div>
     </ItemWrapperStyles>
