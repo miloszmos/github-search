@@ -1,5 +1,6 @@
 query Search($query: String!) {
   users: search(query: $query, first: 50, type: USER) {
+    userCount
     nodes {
       ... on User {
         name
@@ -17,6 +18,7 @@ query Search($query: String!) {
     }
   }
   repositories: search(query: $query, first: 50, type: REPOSITORY) {
+    repositoryCount
     nodes {
       ... on Repository {
         id
