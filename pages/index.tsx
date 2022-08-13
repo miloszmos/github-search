@@ -18,8 +18,6 @@ const HomePage = () => {
   const debouncedSearchTerm = useDebounce(searchTerm, 300);
   const [searchItem, { data, loading }] = useSearchLazyQuery();
 
-  console.log(data);
-
   const renderInitilas = () =>
     searchItem({
       variables: {
