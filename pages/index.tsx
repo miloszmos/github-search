@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import DisplayError from '../components/molecules/ErrorDisplay/ErrorDisplay';
 import RepositoryItem from '../components/molecules/ListItem/RepositoryItem';
 import { SkeletonItemsLoadingList } from '../components/molecules/ListItem/SkeletonItemLoading/SkeletonItemLoading';
 import UserItem from '../components/molecules/ListItem/UserItem';
@@ -19,7 +20,7 @@ import { getTotalResults } from '../lib/getTotalResults';
 const HomePage = () => {
   const { searchTerm } = useSearch();
   const debouncedSearchTerm = useDebounce(searchTerm, 300);
-  const [searchItems, { data, loading }] = useSearchLazyQuery();
+  const [searchItems, { data, loading, error }] = useSearchLazyQuery();
 
   const renderInitilas = () =>
     searchItems({
@@ -59,6 +60,10 @@ const HomePage = () => {
         <SkeletonItemsLoadingList />
       </HomeSectionWapper>
     );
+  }
+
+  if (error) {
+    return <DisplayError error={error} />;
   }
 
   if (!data || getTotalResults(data) === 0) {
