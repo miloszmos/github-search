@@ -21,8 +21,8 @@ const Avatar = ({ src, alt, size = 'small' }: AvatarProps) => {
       src={src}
       alt={alt}
       aria-label="user avatar"
-      width={sizeType[size]}
-      height={sizeType[size]}
+      width={sizeType[size] || 296}
+      height={sizeType[size] || 296}
     />
   );
 };

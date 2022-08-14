@@ -7,7 +7,7 @@ import { NavStyled, SearchWrapper } from './Navbar.styles';
 const Navbar = () => {
   return (
     <NavStyled>
-      <Link href="/">
+      <Link href="/" aria-label="Home page">
         <a>
           <GithubIcon />
         </a>

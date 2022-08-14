@@ -22,7 +22,7 @@ exports[`<UserItem /> renders and matches snapshot 1`] = `
         <img
           alt="some nice faces"
           aria-label="user avatar"
-          class="sc-185cb216-0 iBNTCw"
+          class="sc-6cb0753b-0 btFnbM"
           data-nimg="intrinsic"
           decoding="async"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
