@@ -2,7 +2,6 @@ import { formatDistanceStrict } from 'date-fns';
 import React from 'react';
 import { Repository } from '../../../graphql/generated/graphql';
 import RepositoryIcon from '../../atoms/Icons/RepositoryIcon';
-import IconCountLabel from '../../atoms/Label/IconCountLabel';
 import { LabelStyles } from '../../atoms/Label/Label.styles';
 import StarIcon from '../../atoms/Icons/StarIcon';
 import Dot from '../../atoms/Label/DotLabel';
@@ -12,6 +11,7 @@ import {
   ItemWrapperStyles,
   LabelWrapper,
 } from './ListItem.styles';
+import DetailsLabel from '../DetailsLabel/DetailsLabel';
 
 interface RepositoryItemProps {
   repository: Repository;
@@ -41,7 +41,7 @@ const RepositoryItem = ({ repository }: RepositoryItemProps) => {
         <ItemTextStyles className="gray desc">{description}</ItemTextStyles>
         <InfoStyles>
           <LabelWrapper>
-            <IconCountLabel icon={<StarIcon />} count={stargazerCount} />
+            <DetailsLabel icon={<StarIcon />} count={stargazerCount} />
           </LabelWrapper>
           {lang && lang[0] && (
             <LabelWrapper>
