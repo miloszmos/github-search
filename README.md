@@ -24,7 +24,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Pre-commit
 
-Husky runs liters
+Husky runs liters and unit tests
 
 ### Graphql Gen
 
@@ -33,6 +33,31 @@ To make `graphql-codegen` to work configure `local.codegen.yml` file with your `
 ### Vercel - CI / CD
 
 App is built on Next.js with Vercel deployment, live version can be found:
-[https://github-search-sand.vercel.app/](https://https://github-search-sand.vercel.app/)
+[https://github-search-miloszmos.vercel.app/](https://https://github-search-miloszmos.vercel.app/)
 
 `master` branch is deployed automatically when merging feature branches, each `feature branch` can be tested separately thanks to Vercel atomic deployment
+
+## Tests
+
+App has Jest with React-Testing-Library
+running jest tests locally:
+
+```bash
+npm run test
+# or
+npm run test:watch # for --watch mode
+```
+
+### Styles
+
+App uses Styled Components 💅
+
+### Storybook
+
+You can check available components with storybook
+
+```bash
+npm run storybook
+```
+
+Open [http://localhost:6006](http://localhost:6006) with your browser to see components library.
