@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import DisplayError from '../components/molecules/ErrorDisplay/ErrorDisplay';
 import RepositoryItem from '../components/molecules/ListItem/RepositoryItem';
 import { SkeletonItemsLoadingList } from '../components/molecules/ListItem/SkeletonItemLoading/SkeletonItemLoading';
@@ -66,7 +66,7 @@ const HomePage = () => {
     return <DisplayError error={error} />;
   }
 
-  if (!data || getTotalResults(data) === 0) {
+  if (data && getTotalResults(data) === 0) {
     return <NoResults />;
   }
 
