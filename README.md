@@ -33,7 +33,7 @@ To make `graphql-codegen` to work configure `local.codegen.yml` file with your `
 ### Vercel - CI / CD
 
 App is built on Next.js with Vercel deployment, live version can be found:
-[https://github-search-miloszmos.vercel.app/](https://https://github-search-miloszmos.vercel.app/)
+[https://github-search-miloszmos.vercel.app/](https://github-search-miloszmos.vercel.app/)
 
 `master` branch is deployed automatically when merging feature branches, each `feature branch` can be tested separately thanks to Vercel atomic deployment
 
