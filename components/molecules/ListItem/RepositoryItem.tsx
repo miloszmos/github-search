@@ -44,12 +44,12 @@ const RepositoryItem = ({ repository }: RepositoryItemProps) => {
             <DetailsLabel icon={<StarIcon />} count={stargazerCount} />
           </LabelWrapper>
           {lang && lang[0] && (
-            <LabelWrapper>
+            <LabelWrapper data-testid="language">
               <Dot label={lang[0].name} bgColor={lang[0].color} />
             </LabelWrapper>
           )}
           {licenseInfo && <LabelWrapper>{licenseInfo.name}</LabelWrapper>}
-          <LabelStyles>
+          <LabelStyles data-testid="updatedAt">
             Updated{' '}
             {formatDistanceStrict(new Date(updatedAt), new Date(), {
               addSuffix: true,

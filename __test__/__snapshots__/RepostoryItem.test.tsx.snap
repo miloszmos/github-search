@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RepositoryItem /> renders and matches snapshot 1`] = `
+<div>
+  <div
+    class="sc-b08aa592-2 kghpTT"
+  >
+    <div>
+      <svg
+        fill="none"
+        height="18"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M2.167 17.325H13c1.005 0 2.5-.666 2.5-2.5V3.16c0-1.835-1.495-2.5-2.5-2.5H.5v1.666h12.49c.385.01.843.163.843.834 0 .084-.007.159-.02.227-.093.48-.486.598-.822.606H1.333c-.015 0-.025.007-.04.008H.5V15.66c0 .919.748 1.666 1.667 1.666Zm0-11.666h11.666v9.166c0 .672-.458.824-.833.834H7.167V9.825L5.5 10.66l-1.667-.834v5.834H2.167v-10Z"
+          fill="#6F7781"
+        />
+      </svg>
+    </div>
+    <div
+      class="right"
+    >
+      <a
+        href="http://www.Lilly.info/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <p
+          class="sc-b08aa592-0 wvFcc"
+        >
+          Marisa Ward
+        </p>
+      </a>
+      <p
+        class="sc-b08aa592-0 wvFcc gray desc"
+      >
+        Enim quia autem et modi tenetur amet modi reprehenderit. Adipisci eius laborum eius aut illo dolorum. Aliquam id sit. Vel ipsa tempora aut sint aperiam occaecati illum animi vel.
+      </p>
+      <div
+        class="sc-b08aa592-4 cdqKdz"
+      >
+        <span
+          class="sc-d9d70f80-0 sc-b08aa592-3 crKzRe aqaio"
+        >
+          <div
+            class="sc-c5a584b3-0 loTkHG"
+          >
+            <span
+              class="icon"
+            >
+              <svg
+                fill="none"
+                height="14"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m8 2.26 1.38 2.79.23.5.5.075 3.08.445L11 8.22l-.375.365.09.5.525 3.065-2.755-1.445L8 10.5l-.465.245L4.78 12.17l.5-3.065.09-.5L5 8.22 2.79 6.045 5.87 5.6l.5-.075.23-.5L8 2.26ZM8 0 5.725 4.61.64 5.345l3.68 3.59L3.45 14 8 11.61 12.55 14l-.87-5.065 3.68-3.585-5.085-.74L8 0Z"
+                  fill="#6F7781"
+                />
+              </svg>
+            </span>
+            <span
+              class="sc-d9d70f80-0 sc-c5a584b3-2 crKzRe haifYZ"
+            >
+              0.5326204823795706
+            </span>
+          </div>
+        </span>
+        <span
+          class="sc-d9d70f80-0 sc-b08aa592-3 crKzRe aqaio"
+        >
+          Dr. Okey Lang
+        </span>
+        <span
+          class="sc-d9d70f80-0 crKzRe"
+          data-testid="updatedAt"
+        >
+          Updated
+           
+          in 4 months
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
